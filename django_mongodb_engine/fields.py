@@ -1,7 +1,11 @@
 from django.core.exceptions import ImproperlyConfigured
 from django.db import connections, models
 
-from pymongo.objectid import ObjectId
+try:
+    from pymongo.objectid import ObjectId
+except:
+    from bson.objectid import ObjectId
+
 from gridfs import GridFS
 
 from djangotoolbox.fields import EmbeddedModelField as _EmbeddedModelField
